@@ -1,0 +1,22 @@
+import mongoose from "mongoose"; // Te permite conectar mongo con node
+
+const incidentSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    },
+    lat:{
+        type: Number,
+        requeired: true
+    },
+    lng:{
+        type: Number,
+        requiered: true
+    }
+});
+
+export const IncidentModel =  mongoose.model("Incident", incidentSchema)
