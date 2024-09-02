@@ -18,6 +18,10 @@ jobs:
       - name: Build Docker Image
         run: docker build -t jaramillojst/incidentapi:${{github.sha}} .
 
+      - name: Tag Latest
+        run: docker tag jaramillojst/incidentapi:${{github.sha}} jaramillojst/incidentapi:latest
+
       - name: Push Docker Image
-        run: docker push jaramillojst/incidentapi:${{github.sha}} 
-        
+        run: |
+          docker push jaramillojst/incidentapi:${{github.sha}} 
+          docker push jaramillojst/incidentapi:latest
