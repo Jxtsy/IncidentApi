@@ -19,4 +19,5 @@ jobs:
         run: docker build -t jaramillojst/incidentapi:${{github.sha}} .
 
       - name: Push Docker Image
-        run: docker push jaramillojst/incidentapi:${{github.sha}}
+        run: docker push jaramillojst/incidentapi:${{github.sha}} 
+        
