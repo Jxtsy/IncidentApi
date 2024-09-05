@@ -16,6 +16,7 @@ COPY . ./
 RUN npm run build
 
 # Dejar una puerta o entrada de nuestro puerto
+
 EXPOSE 3000
 
 # Ejecutar la app
