@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import { IncidentModel } from "../../../data/models/incident.model";
+import { EmailService } from "../../../domain/services/email.services";
 
 export class IncidentController {
     public getIncidents = async (req: Request, res: Response) => {
@@ -21,9 +22,15 @@ export class IncidentController {
                 lat,
                 lng
             })
+            // const emailService = new EmailService();
+            // await emailService.sendEmail({
+            //     to: "jaramillojst@gmail.com",
+            //     subject: `Incidente: ${newIncident.title}`, 
+            //     htmlBody: `<h1>${newIncident.description}</h1>` 
+            // });
+            res.json(newIncident);
 
-            res.send("Registro creado")
-            res.json(newIncident)
+
         } catch (error) {
             res.json({ message: "Error creando registro" })
         }
